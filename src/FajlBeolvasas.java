@@ -19,11 +19,6 @@ public class FajlBeolvasas {
         try{
             raf = new RandomAccessFile("/mnt/D/JAVA gyak/kiegFajlok/RCC_input.RC1", "r");
 
-            /*sor = raf.readLine();
-            if (sor.toUpperCase().startsWith("FEJ")) {
-                SzamlaszamInputbol szI = new SzamlaszamInputbol(sor.split("\\|"));
-            }*/
-
             for (sor = raf.readLine(); sor != null; sor = raf.readLine()){
                 if (sor.toUpperCase().startsWith("FEJ")) {
                     String[] sorReszek = sor.split("\\|");
@@ -34,13 +29,7 @@ public class FajlBeolvasas {
             }
             raf.close();
 
-            raf = new RandomAccessFile("/mnt/D/JAVA gyak/kiegFajlok/RCC_paramFejleccel.txt", "r");
-
-            for (sor = raf.readLine(); sor != null; sor = raf.readLine()){
-                String[] paramReszek = sor.split(";");
-                System.out.println("Param: " + paramReszek[0] + " | " + paramReszek[14]);
-            }
-            raf.close();
+            Beolvasas tesztBeolv = new Beolvasas("/mnt/D/JAVA gyak/kiegFajlok/RCC_paramFejleccel.txt");
         }
         catch (IOException e){
             System.out.println("Hiba!");
